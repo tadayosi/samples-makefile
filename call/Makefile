@@ -34,3 +34,10 @@ loop-cd2:
 		$(call cd2,$$i); \
 	done
 	@rmdir {1..3}
+
+cd:
+	@mkdir -p {1..3}
+	@cd 1; pwd
+	@cd 2; pwd
+	@cd 3; pwd
+	@rmdir {1..3}
