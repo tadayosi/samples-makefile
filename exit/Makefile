@@ -39,6 +39,16 @@ test52:
 	@(echo 2; ./test.sh 1; echo 3)
 	@echo 4
 
+test53:
+	@echo 1
+	@echo 2 && ./test.sh 1 && echo 3
+	@echo 4
+
+test54:
+	@echo 1
+	@(echo 2 && ./test.sh 1 && echo 3)
+	@echo 4
+
 define call6
 	@(echo $(1); ./test.sh 1; echo $(2))
 endef
@@ -46,4 +56,13 @@ endef
 test6:
 	@echo 1
 	@$(call call6,2,3)
+	@echo 4
+
+define call61
+	@(echo $(1) && ./test.sh 1 && echo $(2))
+endef
+
+test61:
+	@echo 1
+	@$(call call61,2,3)
 	@echo 4
